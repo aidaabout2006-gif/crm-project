@@ -1,0 +1,216 @@
+<!-- <!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <title>داشبورد</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center p-6">
+
+  <h1 class="text-4xl font-bold mb-8">سلام، <%= username %>!</h1>
+
+  <div class="flex gap-8">
+    <a href="/customers" class="bg-blue-600 text-white px-8 py-4 rounded-xl hover:bg-blue-700 transition">
+      مدیریت مشتری‌ها
+    </a>
+    <a href="/groups" class="bg-green-600 text-white px-8 py-4 rounded-xl hover:bg-green-700 transition">
+      مدیریت گروه‌ها
+    </a>
+  </div>
+
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>داشبورد</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: sans-serif;
+    }
+
+    body {
+      margin: 0;
+      background: #f4f4f5;
+    }
+
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
+
+    /* ===== Sidebar ===== */
+    .sidebar {
+      width: 250px;
+      background: linear-gradient(180deg, #4f46e5, #4338ca);
+      color: white;
+      padding: 1.5rem 1rem;
+      transition: transform 0.3s ease;
+    }
+
+    .sidebar h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .sidebar a {
+      display: flex;
+      align-items: center;
+      padding: 0.9rem 1rem;
+      border-radius: 12px;
+      text-decoration: none;
+      color: white;
+      margin-bottom: 0.6rem;
+      transition: background 0.2s;
+    }
+
+    .sidebar a:hover {
+      background: rgba(255,255,255,0.2);
+    }
+
+    /* ===== Content ===== */
+    .content {
+      flex: 1;
+      padding: 1.5rem;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .menu-btn {
+      display: none;
+      font-size: 22px;
+      background: #4f46e5;
+      color: white;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+
+    .header {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+      margin-bottom: 2rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.2rem;
+    }
+
+    .card {
+      background: white;
+      padding: 1.5rem;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      margin: 0 0 0.5rem;
+      color: #4f46e5;
+    }
+
+    /* ===== Mobile ===== */
+    @media (max-width: 768px) {
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100%;
+        transform: translateX(-100%);
+        z-index: 1000;
+      }
+
+      .sidebar.active {
+        transform: translateX(0);
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      .layout {
+        flex-direction: column;
+      }
+    }
+
+    /* ===== Overlay ===== */
+    .overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.4);
+      z-index: 900;
+      display: none;
+    }
+
+    .overlay.active {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<div class="layout">
+
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <h2>CRM پنل</h2>
+    <a href="/dashboard">داشبورد</a>
+    <a href="/customers">مدیریت مشتری‌ها</a>
+    <a href="/groups">گروه مشتری‌ها</a>
+    <a href="/users/logout">خروج</a>
+  </aside>
+
+  <!-- Content -->
+  <main class="content">
+
+    <div class="topbar">
+      <button class="menu-btn" onclick="toggleMenu()">☰</button>
+      <h3>داشبورد</h3>
+    </div>
+
+    <div class="header">
+      <h1>سلام، <%= username || 'کاربر' %></h1>
+      <p>به پنل مدیریت خوش آمدید</p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <h3>مشتری‌ها</h3>
+        <p>مدیریت، افزودن و ویرایش مشتری‌ها</p>
+      </div>
+
+      <div class="card">
+        <h3>گروه‌ها</h3>
+        <p>دسته‌بندی مشتری‌ها در گروه‌های مختلف</p>
+      </div>
+    </div>
+
+  </main>
+
+</div>
+
+<div class="overlay" onclick="toggleMenu()"></div>
+
+<script>
+  function toggleMenu() {
+    document.querySelector('.sidebar').classList.toggle('active');
+    document.querySelector('.overlay').classList.toggle('active');
+  }
+</script>
+
+</body>
+</html>

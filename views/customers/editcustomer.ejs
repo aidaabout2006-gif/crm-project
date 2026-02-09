@@ -1,0 +1,130 @@
+<!-- <form method="POST" action="/customers/update">
+    <input type="hidden" name="id" value="<%= customer.id %>">
+
+    <label>نام کامل:</label>
+    <input type="text" name="full_name" value="<%= customer.full_name %>"><br><br>
+
+    <label>شماره تماس:</label>
+    <input type="text" name="phone" value="<%= customer.phone %>"><br><br>
+
+    <button type="submit">ویرایش</button>
+</form> -->
+
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ویرایش مشتری</title>
+<style>
+body {
+  background: linear-gradient(to top right, #667eea, #764ba2);
+  font-family: Arial, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.container {
+  background: white;
+  padding: 2rem;
+  border-radius: 2rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  width: 100%;
+  max-width: 350px;
+  box-sizing: border-box;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 1.5rem;
+  color: #4f46e5;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+}
+
+input[type="text"], input[type="number"], input[type="email"], input[type="password"] {
+  width: 100%;
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  font-size: 1rem;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+button, a.button {
+  flex: 1;
+  text-align: center;
+  padding: 0.8rem;
+  border-radius: 0.5rem;
+  border: none;
+  text-decoration: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button {
+  background-color: #4f46e5;
+}
+
+button:hover {
+  background-color: #3730a3;
+}
+
+a.button {
+  background-color: #999;
+}
+
+a.button:hover {
+  background-color: #777;
+}
+
+@media (max-width: 480px) {
+  .buttons {
+    flex-direction: column;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>ویرایش مشتری</h1>
+
+  <form action="/customers/update" method="POST">
+    <input type="hidden" name="id" value="<%= customer.id %>">
+
+    <label for="full_name">نام کامل</label>
+    <input id="full_name" name="full_name" type="text" value="<%= customer.full_name %>" required>
+
+    <label for="phone">شماره تماس</label>
+    <input id="phone" name="phone" type="text" value="<%= customer.phone %>">
+
+    <!-- <label for="group_id">آیدی گروه</label>
+    <input id="group_id" name="group_id" type="number" value="<%= customer.group_id %>"> -->
+
+    <div class="buttons">
+      <button type="submit">ذخیره تغییرات</button>
+      <a href="/customers" class="button">بازگشت</a>
+    </div>
+  </form>
+</div>
+
+</body>
+</html>
