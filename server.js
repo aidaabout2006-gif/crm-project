@@ -21,7 +21,7 @@ app.set('view engine', 'ejs');
 
 //  session
 app.use(session({
-    secret: secret, 
+    secret: 'یک_رشته_خیلی_امن', 
     resave: false,
     saveUninitialized: false,
     cookie: { maxAge: 3600000 } 
