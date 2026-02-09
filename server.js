@@ -1,6 +1,6 @@
 const path = require('path');
 const express = require('express');
-const session = require('express-session'); // ← اضافه شد
+const session = require('express-session'); 
 
 const customerRoutes = require('./routes/customerRoutes');
 const userRoutes = require('./routes/userRoutes');
@@ -19,12 +19,12 @@ app.use(express.json());
 // view engine 
 app.set('view engine', 'ejs');
 
-// ← اضافه: session
+//  session
 app.use(session({
-    secret: 'یک_رشته_خیلی_امن', // حتما تغییر بده
+    secret: secret, 
     resave: false,
     saveUninitialized: false,
-    cookie: { maxAge: 3600000 } // 1 ساعت
+    cookie: { maxAge: 3600000 } 
 }));
 
  

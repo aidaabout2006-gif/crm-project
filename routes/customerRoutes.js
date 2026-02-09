@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const customerController = require('../controllers/customerController');
-const authMiddleware = require('../middlewares/auth'); // اضافه شد
+const authMiddleware = require('../middlewares/auth'); 
 
 // صفحه اصلی مشتری‌ها
 router.get('/', authMiddleware, customerController.showCustomers);
 
-// پیام‌های راهنما (می‌تونی همونجا هم auth بذاری)
+
 router.get('/add', authMiddleware, (req, res) => res.send('برای افزودن مشتری باید فرم POST ارسال شود'));
 router.get('/all', authMiddleware, (req, res) => res.send('برای دریافت همه مشتری‌ها باید POST ارسال شود'));
 router.get('/delete', authMiddleware, (req, res) => res.send('برای حذف مشتری باید فرم POST ارسال شود'));

@@ -11,11 +11,12 @@ const connection = require('../config/db'); // گرفتن اتصال دیتاب�
         res.redirect('/customers');
     });
 };
+
 //گرفتن لیست  همه مشتری ها 
 exports.getAllCustomers = (req , res)=>{
-    const query = "SELECT * FROM customers"; // دستور sql برای همه مشتری ها
+    const query = "SELECT * FROM customers";  
     
-    connection.query(query,(err , result)=>{ //اجرای کویری
+    connection.query(query,(err , result)=>{ 
         if(err){
             res.send("خطا در دریافت لیست ");
         }else{
@@ -47,7 +48,7 @@ exports.updateCustomers = (req , res )=>{
     const { id , full_name , phone } = req.body; //آیدی مشتری رو میگیریم
     const query = "UPDATE customers SET  full_name  = ? , phone =?  WHERE id= ?"; // دستور sql برای ویرایش با id
 
-    connection.query(query,[full_name , phone , id] , (err , result)=>{ //اجرا دستور آپدید
+    connection.query(query,[full_name , phone , id] , (err , result)=>{ 
         if(err){
             res.send("خطا در ویرایش مشتری ");
         }else{
@@ -59,9 +60,9 @@ exports.updateCustomers = (req , res )=>{
 //حذف مشتری 
 exports.deleteCustomers = (req , res )=>{
     const id = req.body.id ; //ایدی مشتری رو برای حذف میگیریم 
-    const  query = "DELETE FROM customers WHERE id =? "; // دستور sql برای حذف مشتری
+    const  query = "DELETE FROM customers WHERE id =? "; 
 
-    connection.query(query , [id] , (err , result)=>{ // اجرای دستور حذف
+    connection.query(query , [id] , (err , result)=>{ 
         if(err){
             res.send("خطا در حذف مشتری");
         }else{

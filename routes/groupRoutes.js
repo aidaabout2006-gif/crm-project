@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const groupController = require('../controllers/groupController');
-const authMiddleware = require('../middlewares/auth'); // اضافه شد
+const authMiddleware = require('../middlewares/auth'); 
 
 // صفحه اصلی گروه‌ها
 router.get('/', authMiddleware, groupController.showGroups);

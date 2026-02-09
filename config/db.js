@@ -25,11 +25,11 @@
 
 const mysql = require('mysql2');
 const connection = mysql.createConnection({
-    host: '127.0.0.1',    // یا آیپی سرور دیتابیس
-    user: 'root',         // یوزر دیتابیس
-    password: '1234',         // پسورد دیتابیس
+    host: '127.0.0.1',    
+    user: 'root',         
+    password: '1234',         
     database: 'crm_db', 
-     connectTimeout : 1000,  // اسم دیتابیس
+     connectTimeout : 1000,  
     port: 3306
 });
 

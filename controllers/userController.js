@@ -1,5 +1,5 @@
 const connection = require('../config/db');
-const bcrypt = require('bcrypt'); // اضافه شد
+const bcrypt = require('bcrypt'); 
 
 // ثبت نام
 exports.registerUser = (req, res) => {
@@ -34,12 +34,12 @@ exports.loginUser = (req, res) => {
 
         if (results.length === 0) return res.send("نام کاربری یا رمز عبور اشتباه است");
 
-        // مقایسه رمز با هش
+        
         bcrypt.compare(password, results[0].password, (err, match) => {
             if (err) return res.send("خطا در پردازش رمز");
             if (!match) return res.send("نام کاربری یا رمز عبور اشتباه است");
 
-            // اگر درست بود session می‌سازیم
+            // session می‌سازیم
             req.session.user = { id: results[0].id, username: results[0].username };
             res.redirect('/dashboard');
         });

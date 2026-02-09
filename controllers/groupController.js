@@ -2,7 +2,7 @@ const connection = require('../config/db');
 
 exports.addGroup = async(req, res) => {
     const { group_name } = req.body;
-    const query = "INSERT INTO customer_groups (group_name) VALUES (?)"; // درست شد
+    const query = "INSERT INTO customer_groups (group_name) VALUES (?)";  
     connection.query(query, [group_name], (err, result) => {
         if (err) res.send("خطا در اضافه کردن گروه: " + err.message);
         else res.send("گروه با موفقیت اضافه شد");
@@ -42,7 +42,7 @@ exports.showGroups = (req, res) => {
         if(err) {
             res.send("خطا در دریافت گروه‌ها: " + err.message);
         } else {
-            res.render('groups/index', { groups }); // رندر صفحه و پاس دادن گروه‌ها
+            res.render('groups/index', { groups }); 
         }
     });
 };
