@@ -21,6 +21,7 @@
 </body>
 </html> -->
 
+
 <!DOCTYPE html>
 <html lang="fa">
 <head>
@@ -73,7 +74,6 @@
       background: rgba(255,255,255,0.2);
     }
 
-    
     .content {
       flex: 1;
       padding: 1.5rem;
@@ -147,7 +147,6 @@
       }
     }
 
-    
     .overlay {
       position: fixed;
       inset: 0;
@@ -173,7 +172,6 @@
     <a href="/groups">گروه مشتری‌ها</a>
     <a href="/users/logout">خروج</a>
   </aside>
-
   
   <main class="content">
 
@@ -213,5 +211,34 @@
   }
 </script>
 
+
+<!-- <h3>کاربران از وب سرویس خارجی</h3>
+<div id="external-users"></div>
+
+<script>
+async function loadExternalUsers() {
+    try {
+        const res = await fetch('https://jsonplaceholder.typicode.com/users');
+        const data = await res.json();
+
+        let html = "<ul>";
+
+        data.forEach(user => {
+            html += `<li>${user.name} - ${user.email}</li>`;
+        });
+
+        html += "</ul>";
+
+        document.getElementById("external-users").innerHTML = html;
+
+    } catch (error) {
+        console.error("خطا در دریافت API خارجی:", error);
+    }
+}
+
+loadExternalUsers();
+</script> -->
+
 </body>
 </html>
+
